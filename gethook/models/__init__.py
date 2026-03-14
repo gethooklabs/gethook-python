@@ -28,6 +28,7 @@ from gethook.models.create_source_request import CreateSourceRequest
 from gethook.models.custom_domain import CustomDomain
 from gethook.models.delivery_attempt import DeliveryAttempt
 from gethook.models.destination import Destination
+from gethook.models.destination_preset import DestinationPreset
 from gethook.models.direction import Direction
 from gethook.models.error_response import ErrorResponse
 from gethook.models.event import Event
@@ -36,6 +37,7 @@ from gethook.models.event_list_data import EventListData
 from gethook.models.event_status import EventStatus
 from gethook.models.ingest_accepted_data import IngestAcceptedData
 from gethook.models.login_request import LoginRequest
+from gethook.models.provider_preset import ProviderPreset
 from gethook.models.publish_outbound_data import PublishOutboundData
 from gethook.models.publish_outbound_event_request import PublishOutboundEventRequest
 from gethook.models.register_request import RegisterRequest

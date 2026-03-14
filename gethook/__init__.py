@@ -55,6 +55,7 @@ __all__ = [
     "CustomDomain",
     "DeliveryAttempt",
     "Destination",
+    "DestinationPreset",
     "Direction",
     "ErrorResponse",
     "Event",
@@ -63,6 +64,7 @@ __all__ = [
     "EventStatus",
     "IngestAcceptedData",
     "LoginRequest",
+    "ProviderPreset",
     "PublishOutboundData",
     "PublishOutboundEventRequest",
     "RegisterRequest",
@@ -119,6 +121,7 @@ from gethook.models.create_source_request import CreateSourceRequest as CreateSo
 from gethook.models.custom_domain import CustomDomain as CustomDomain
 from gethook.models.delivery_attempt import DeliveryAttempt as DeliveryAttempt
 from gethook.models.destination import Destination as Destination
+from gethook.models.destination_preset import DestinationPreset as DestinationPreset
 from gethook.models.direction import Direction as Direction
 from gethook.models.error_response import ErrorResponse as ErrorResponse
 from gethook.models.event import Event as Event
@@ -127,6 +130,7 @@ from gethook.models.event_list_data import EventListData as EventListData
 from gethook.models.event_status import EventStatus as EventStatus
 from gethook.models.ingest_accepted_data import IngestAcceptedData as IngestAcceptedData
 from gethook.models.login_request import LoginRequest as LoginRequest
+from gethook.models.provider_preset import ProviderPreset as ProviderPreset
 from gethook.models.publish_outbound_data import PublishOutboundData as PublishOutboundData
 from gethook.models.publish_outbound_event_request import PublishOutboundEventRequest as PublishOutboundEventRequest
 from gethook.models.register_request import RegisterRequest as RegisterRequest

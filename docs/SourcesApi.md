@@ -5,7 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_source**](SourcesApi.md#create_source) | **POST** /v1/sources | Create source
+[**delete_source**](SourcesApi.md#delete_source) | **DELETE** /v1/sources/{id} | Delete source
 [**get_source**](SourcesApi.md#get_source) | **GET** /v1/sources/{id} | Get source
+[**list_providers**](SourcesApi.md#list_providers) | **GET** /v1/provider-presets | List provider presets
 [**list_sources**](SourcesApi.md#list_sources) | **GET** /v1/sources | List sources
 
 
@@ -90,6 +92,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_source**
+> delete_source(id)
+
+Delete source
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import gethook
+from gethook.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gethook.Configuration(
+    host = "http://localhost:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with gethook.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gethook.SourcesApi(api_client)
+    id = 'id_example' # str | Source UUID
+
+    try:
+        # Delete source
+        api_instance.delete_source(id)
+    except Exception as e:
+        print("Exception when calling SourcesApi->delete_source: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Source UUID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_source**
 > Source get_source(id)
 
@@ -166,6 +244,79 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_providers**
+> List[ProviderPreset] list_providers()
+
+List provider presets
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import gethook
+from gethook.models.provider_preset import ProviderPreset
+from gethook.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gethook.Configuration(
+    host = "http://localhost:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with gethook.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gethook.SourcesApi(api_client)
+
+    try:
+        # List provider presets
+        api_response = api_instance.list_providers()
+        print("The response of SourcesApi->list_providers:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SourcesApi->list_providers: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[ProviderPreset]**](ProviderPreset.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

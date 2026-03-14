@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **custom_headers** | **object** |  | [optional] 
 **id** | **str** |  | 
 **name** | **str** |  | 
+**preset** | **str** |  | [optional] 
 **timeout_seconds** | **int** |  | 
 **url** | **str** |  | 
 

@@ -17,26 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Destination(BaseModel):
+class ProviderPreset(BaseModel):
     """
-    Destination
+    ProviderPreset
     """ # noqa: E501
-    account_id: StrictStr
-    active: StrictBool
-    auth_config: Optional[Dict[str, Any]] = None
-    created_at: StrictStr
-    custom_headers: Optional[Dict[str, Any]] = None
-    id: StrictStr
-    name: StrictStr
-    preset: Optional[StrictStr] = None
-    timeout_seconds: StrictInt
-    url: StrictStr
-    __properties: ClassVar[List[str]] = ["account_id", "active", "auth_config", "created_at", "custom_headers", "id", "name", "preset", "timeout_seconds", "url"]
+    auth_mode: Optional[StrictStr] = None
+    category: Optional[StrictStr] = None
+    color: Optional[StrictStr] = None
+    description: Optional[StrictStr] = None
+    docs_url: Optional[StrictStr] = None
+    header: Optional[StrictStr] = None
+    id: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["auth_mode", "category", "color", "description", "docs_url", "header", "id", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +54,7 @@ class Destination(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Destination from a JSON string"""
+        """Create an instance of ProviderPreset from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +79,7 @@ class Destination(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Destination from a dict"""
+        """Create an instance of ProviderPreset from a dict"""
         if obj is None:
             return None
 
@@ -89,16 +87,14 @@ class Destination(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "active": obj.get("active"),
-            "auth_config": obj.get("auth_config"),
-            "created_at": obj.get("created_at"),
-            "custom_headers": obj.get("custom_headers"),
+            "auth_mode": obj.get("auth_mode"),
+            "category": obj.get("category"),
+            "color": obj.get("color"),
+            "description": obj.get("description"),
+            "docs_url": obj.get("docs_url"),
+            "header": obj.get("header"),
             "id": obj.get("id"),
-            "name": obj.get("name"),
-            "preset": obj.get("preset"),
-            "timeout_seconds": obj.get("timeout_seconds"),
-            "url": obj.get("url")
+            "name": obj.get("name")
         })
         return _obj
 

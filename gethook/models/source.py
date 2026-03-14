@@ -34,9 +34,10 @@ class Source(BaseModel):
     ingest_url: StrictStr
     name: StrictStr
     path_token: StrictStr
+    provider: Optional[StrictStr] = None
     status: StrictStr
     verification_config: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["account_id", "auth_mode", "created_at", "custom_domain_id", "id", "ingest_url", "name", "path_token", "status", "verification_config"]
+    __properties: ClassVar[List[str]] = ["account_id", "auth_mode", "created_at", "custom_domain_id", "id", "ingest_url", "name", "path_token", "provider", "status", "verification_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class Source(BaseModel):
             "ingest_url": obj.get("ingest_url"),
             "name": obj.get("name"),
             "path_token": obj.get("path_token"),
+            "provider": obj.get("provider"),
             "status": obj.get("status"),
             "verification_config": obj.get("verification_config")
         })

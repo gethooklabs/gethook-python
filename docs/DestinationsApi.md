@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_destination**](DestinationsApi.md#create_destination) | **POST** /v1/destinations | Create destination
 [**get_destination**](DestinationsApi.md#get_destination) | **GET** /v1/destinations/{id} | Get destination
+[**list_destination_presets**](DestinationsApi.md#list_destination_presets) | **GET** /v1/destination-presets | List destination presets
 [**list_destinations**](DestinationsApi.md#list_destinations) | **GET** /v1/destinations | List destinations
+[**rotate_destination_secret**](DestinationsApi.md#rotate_destination_secret) | **POST** /v1/destinations/{id}/rotate-secret | Rotate destination signing secret
 [**update_destination**](DestinationsApi.md#update_destination) | **PATCH** /v1/destinations/{id} | Update destination
 
 
@@ -170,6 +172,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_destination_presets**
+> List[DestinationPreset] list_destination_presets()
+
+List destination presets
+
+### Example
+
+
+```python
+import gethook
+from gethook.models.destination_preset import DestinationPreset
+from gethook.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gethook.Configuration(
+    host = "http://localhost:8080"
+)
+
+
+# Enter a context with an instance of the API client
+with gethook.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gethook.DestinationsApi(api_client)
+
+    try:
+        # List destination presets
+        api_response = api_instance.list_destination_presets()
+        print("The response of DestinationsApi->list_destination_presets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DestinationsApi->list_destination_presets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[DestinationPreset]**](DestinationPreset.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_destinations**
 > List[Destination] list_destinations()
 
@@ -240,6 +304,86 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rotate_destination_secret**
+> object rotate_destination_secret(id, body)
+
+Rotate destination signing secret
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import gethook
+from gethook.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gethook.Configuration(
+    host = "http://localhost:8080"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with gethook.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gethook.DestinationsApi(api_client)
+    id = 'id_example' # str | Destination UUID
+    body = None # object | New signing secret
+
+    try:
+        # Rotate destination signing secret
+        api_response = api_instance.rotate_destination_secret(id, body)
+        print("The response of DestinationsApi->rotate_destination_secret:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DestinationsApi->rotate_destination_secret: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Destination UUID | 
+ **body** | **object**| New signing secret | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
