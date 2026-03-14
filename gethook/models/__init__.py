@@ -37,6 +37,7 @@ from gethook.models.event_list_data import EventListData
 from gethook.models.event_status import EventStatus
 from gethook.models.ingest_accepted_data import IngestAcceptedData
 from gethook.models.login_request import LoginRequest
+from gethook.models.platform_stats import PlatformStats
 from gethook.models.provider_preset import ProviderPreset
 from gethook.models.publish_outbound_data import PublishOutboundData
 from gethook.models.publish_outbound_event_request import PublishOutboundEventRequest

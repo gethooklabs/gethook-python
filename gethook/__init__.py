@@ -28,6 +28,7 @@ __all__ = [
     "HealthApi",
     "IngestApi",
     "OutboundEventsApi",
+    "PlatformApi",
     "RoutesApi",
     "SourcesApi",
     "StatsApi",
@@ -64,6 +65,7 @@ __all__ = [
     "EventStatus",
     "IngestAcceptedData",
     "LoginRequest",
+    "PlatformStats",
     "ProviderPreset",
     "PublishOutboundData",
     "PublishOutboundEventRequest",
@@ -90,6 +92,7 @@ from gethook.api.events_api import EventsApi as EventsApi
 from gethook.api.health_api import HealthApi as HealthApi
 from gethook.api.ingest_api import IngestApi as IngestApi
 from gethook.api.outbound_events_api import OutboundEventsApi as OutboundEventsApi
+from gethook.api.platform_api import PlatformApi as PlatformApi
 from gethook.api.routes_api import RoutesApi as RoutesApi
 from gethook.api.sources_api import SourcesApi as SourcesApi
 from gethook.api.stats_api import StatsApi as StatsApi
@@ -130,6 +133,7 @@ from gethook.models.event_list_data import EventListData as EventListData
 from gethook.models.event_status import EventStatus as EventStatus
 from gethook.models.ingest_accepted_data import IngestAcceptedData as IngestAcceptedData
 from gethook.models.login_request import LoginRequest as LoginRequest
+from gethook.models.platform_stats import PlatformStats as PlatformStats
 from gethook.models.provider_preset import ProviderPreset as ProviderPreset
 from gethook.models.publish_outbound_data import PublishOutboundData as PublishOutboundData
 from gethook.models.publish_outbound_event_request import PublishOutboundEventRequest as PublishOutboundEventRequest
