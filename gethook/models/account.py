@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,8 @@ class Account(BaseModel):
     id: StrictStr
     name: StrictStr
     plan: StrictStr
-    __properties: ClassVar[List[str]] = ["created_at", "email", "id", "name", "plan"]
+    retention_days: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["created_at", "email", "id", "name", "plan", "retention_days"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +89,8 @@ class Account(BaseModel):
             "email": obj.get("email"),
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "plan": obj.get("plan")
+            "plan": obj.get("plan"),
+            "retention_days": obj.get("retention_days")
         })
         return _obj
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **name** | **str** |  | 
 **plan** | **str** |  | 
+**retention_days** | **int** |  | [optional] 
 
 ## Example
 
